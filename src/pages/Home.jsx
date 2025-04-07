@@ -17,14 +17,13 @@ function Home() {
         }
         const data = await response.json();
 
-        // Format hasil dari TMDB supaya cocok dengan struktur movie kamu
         const formattedMovies = data.results.slice(0, 8).map((movie) => ({
           id: movie.id,
           title: movie.title,
           description: movie.overview,
           thumbnail: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-          time: ['14:00', '17:00', '20:00'], // jam tayang tetap dummy
-          date: '7 April 2025' // tanggal tayang tetap dummy
+          time: ['14:00', '17:00', '20:00'], 
+          date: '7 April 2025' 
         }));
 
         setMovies(formattedMovies);
