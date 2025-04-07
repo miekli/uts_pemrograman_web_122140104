@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './artpages/SeatSelection.css'; // opsional, kalau kamu punya styling terpisah
+import './artpages/SeatSelection.css';
 
 function SeatSelection() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function SeatSelection() {
     const allSeats = Array.from({ length: 30 }, (_, i) => `S${i + 1}`);
     return allSeats.map(seat => ({
       id: seat,
-      taken: Math.random() < 0.3 // Simulasi kursi sudah terisi
+      taken: Math.random() < 0.3 
     }));
   }, []);
 
@@ -29,7 +29,6 @@ function SeatSelection() {
 
   const handleNext = () => {
     if (selectedSeat && time) {
-      // Simpan ke localStorage untuk diakses di halaman Checkout
       localStorage.setItem('ticketSeat', selectedSeat);
       localStorage.setItem('ticketTime', time);
       navigate('/checkout');
